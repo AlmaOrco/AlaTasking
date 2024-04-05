@@ -1,5 +1,9 @@
+<h3>Tareas pendientes</h3>
 <ul>
-    <li *ngFor="let task of taskList">
-        {{task.id}}. {{task.title}}
-    </li>
+    <div *ngFor="let task of taskList" >
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            {{task.id}}. {{task.title}}
+        </label>
+    </div>
 </ul>

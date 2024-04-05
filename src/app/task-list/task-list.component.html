@@ -1,9 +1,22 @@
 <h3>Tareas pendientes</h3>
 <ul class="tasks">
     <li *ngFor="let task of taskList" >
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input class="form-check-input" [checked]="task.completed" type="checkbox" value="" id="flexCheckDefault" (change)="onChange(task)">
         <label class="form-check-label" for="flexCheckDefault">
              {{task.id}}. {{task.title}}
         </label>
     </li>
 </ul>
+
+<div *ngIf="selectedTask">
+
+    <h2>{{selectedTask.title | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedTask.id}}</div>
+    <div>
+      <label>title:
+        <p>{{selectedTask.title}}</p>
+      </label>
+    </div>
+    <div *ngIf="selectedTask.completed">Completed</div>
+  
+</div>

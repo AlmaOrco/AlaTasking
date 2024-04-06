@@ -2,12 +2,11 @@ import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { TASKS } from '../task-mock';
 import { Task } from '../task';
-import { NgModel } from '@angular/forms';
+import { TaskDetailsComponent } from '../task-details/task-details.component';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [NgFor, UpperCasePipe, NgIf],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })

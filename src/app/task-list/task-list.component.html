@@ -16,16 +16,4 @@
         </label>
     </li>
 </ul>
-
-<div *ngIf="selectedTask">
-
-    <h2>{{selectedTask.title | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedTask.id}}</div>
-    <div>
-      <label>title:
-        <p>{{selectedTask.title}}</p>
-      </label>
-    </div>
-    <div *ngIf="selectedTask.completed">Completed</div>
-  
-</div>
+<app-task-details [task]="selectedTask"></app-task-details>

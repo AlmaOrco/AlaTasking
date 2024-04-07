@@ -1,19 +1,23 @@
 <h3>Tareas pendientes</h3>
 <ul class="tasks">
-    <li *ngFor="let task of toDoList" >
-        <input class="form-check-input" [checked]="task.completed" type="checkbox" value="" id="flexCheck{{task.id}}" (change)="onChange(task)">
-        <label class="form-check-label" for="flexCheck{{task.id}}">
-             {{task.id}}. {{task.title}}
-        </label>
-    </li>
+    @for(task of toDoList; track task.id) {
+        <li>
+            <input class="form-check-input" [checked]="task.completed" type="checkbox" value="" id="flexCheck{{task.id}}" (change)="onChange(task)">
+            <label class="form-check-label" for="flexCheck{{task.id}}">
+                 {{task.id}}. {{task.title}}
+            </label>
+        </li>        
+    }
 </ul>
 <h3>Tareas Completadas</h3>
 <ul class="tasks">
-    <li *ngFor="let task of doneList" >
+    @for(task of doneList; track task.id) {
+    <li>
         <input class="form-check-input" [checked]="task.completed" type="checkbox" value="" id="flexCheck{{task.id}}" (change)="onChange(task)">
         <label class="form-check-label text-decoration-line-through text-muted" for="flexCheck{{task.id}}">
              {{task.id}}. {{task.title}}
         </label>
     </li>
+    }
 </ul>
 <app-task-details [task]="selectedTask"></app-task-details>

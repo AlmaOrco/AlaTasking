@@ -7,6 +7,7 @@ import { TaskDetailsComponent } from '../task-details/task-details.component';
 @Component({
   selector: 'app-task-list',
   standalone: true,
+  imports: [NgFor, TaskDetailsComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })
@@ -15,7 +16,7 @@ export class TaskListComponent implements OnInit{
   toDoList:Task[] = [];
   doneList:Task[] = [];
 
-  selectedTask:Task = {id:0, title: ""};
+  selectedTask:Task;
   
   ngOnInit(): void {
     this.orderList(TASKS);

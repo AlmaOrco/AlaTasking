@@ -1,11 +1,14 @@
-<div *ngIf="task.id != 0">
-
-    <h2>{{task.title}} Details</h2>
-    <div><span>id: </span>{{task.id}}</div>
-    <div>
-      <label>title:
-        <p>{{task.title}}</p>
-      </label>
-    </div>
-    <div *ngIf="task.completed">Completed</div>
-</div>
+@if(task) {
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{task.title}}</mat-card-title>
+      <mat-card-subtitle><span>id: </span>{{task.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Completed</button>
+      <button mat-mini-fab color="accent">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+}

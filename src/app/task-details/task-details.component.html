@@ -4,6 +4,11 @@
       <mat-card-title>{{task.title}}</mat-card-title>
       <mat-card-subtitle><span>id: </span>{{task.id}}</mat-card-subtitle>
     </mat-card-header>
+    @if(task.remark) {
+      <mat-card-content>
+        <p>{{task.remark}}</p>
+      </mat-card-content>
+    }
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="complete.emit(task)">Completed</button>
       <button mat-mini-fab color="accent" (click)="delete.emit(task)">

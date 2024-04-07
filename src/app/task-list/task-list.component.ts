@@ -1,14 +1,15 @@
-import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { TASKS } from '../task-mock';
 import { Task } from '../task';
 import { TaskDetailsComponent } from '../task-details/task-details.component';
 import { TaskListItemComponent } from '../task-list-item/task-list-item.component';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [NgFor, TaskDetailsComponent, TaskListItemComponent],
+  imports: [NgFor, TaskDetailsComponent, TaskListItemComponent, MatListModule],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })
@@ -18,6 +19,8 @@ export class TaskListComponent implements OnInit{
   doneList:Task[] = [];
 
   selectedTask:Task;
+  
+  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   
   ngOnInit(): void {
     this.orderList(this.taskList);

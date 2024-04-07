@@ -13,22 +13,35 @@ import { TaskListItemComponent } from '../task-list-item/task-list-item.componen
   styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent implements OnInit{
-  taskList:Task[] = TASKS;
+  taskList:Task[] = [...TASKS];
   toDoList:Task[] = [];
   doneList:Task[] = [];
 
   selectedTask:Task;
   
   ngOnInit(): void {
-    this.orderList(TASKS);
+    this.orderList(this.taskList);
   }
 
+  //events
   onChange(task: Task): void {
     task.completed = !task.completed;
     this.selectedTask = task;
     this.orderList(this.taskList);
   }
 
+  toComplete(task:Task): void {
+    this.onChange(task);
+  }
+
+  toDelete(toDelete:Task): void {
+    this.taskList.splice(this.taskList.findIndex((task) => toDelete.id == task.id),1);
+    this.orderList(this.taskList);
+    toDelete.id = 0;
+    console.log(this.taskList);
+  }
+
+  // aux functions
   orderList(taskList:Task[]):void {
     this.toDoList = [];
     this.doneList = [];
@@ -36,5 +49,7 @@ export class TaskListComponent implements OnInit{
       task.completed ? this.doneList.push(task) : this.toDoList.push(task);
     });
   }
+
+
 
 }

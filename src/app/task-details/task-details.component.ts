@@ -1,5 +1,5 @@
 import { NgIf, UpperCasePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../task';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule, MatIconButton} from '@angular/material/button';
@@ -14,4 +14,6 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class TaskDetailsComponent {
   @Input({required:true}) task: Task;
+  @Output() complete = new EventEmitter();
+  @Output() delete = new EventEmitter();
 }

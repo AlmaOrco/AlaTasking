@@ -16,4 +16,8 @@
         </app-task-list-item>
     }
 </ul>
-<app-task-details [task]="selectedTask"></app-task-details>
+<app-task-details 
+    [task]="selectedTask" 
+    (complete)="toComplete($event)"
+    (delete)="toDelete($event)"
+    ></app-task-details>

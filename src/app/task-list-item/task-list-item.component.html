@@ -1,0 +1,7 @@
+<li>
+    <input class="form-check-input" [checked]="task.completed" type="checkbox" value="" id="flexCheck{{task.id}}" (change)="onChange(task)">
+    <label class="form-check-label"  [class.text-decoration-line-through]="task.completed" [class.text-muted]="task.completed">
+            {{task.id}}. {{task.title}}
+    </label>
+</li>
+<!-- for="flexCheck{{task.id}}" -->

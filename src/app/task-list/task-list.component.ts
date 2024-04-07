@@ -3,11 +3,12 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { TASKS } from '../task-mock';
 import { Task } from '../task';
 import { TaskDetailsComponent } from '../task-details/task-details.component';
+import { TaskListItemComponent } from '../task-list-item/task-list-item.component';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [NgFor, TaskDetailsComponent],
+  imports: [NgFor, TaskDetailsComponent, TaskListItemComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })

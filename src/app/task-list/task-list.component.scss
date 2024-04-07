@@ -5,32 +5,3 @@
   padding: 0;
   width: 50em;
 }
-.tasks li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em .3em;
-  border-radius: 4px;
-}
-.tasks li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.tasks li.selected {
-  background-color: #CFD8DC;
-  color: white;
-}
-.tasks li.selected:hover {
-  background-color: #BBD8DC;
-  color: white;
-}
-.tasks li .form-check-input {
-  margin: .3em;
-}
-.tasks li .form-check-input:checked {
-  background-color: #95989d;
-  border-color: #95989d;
-}

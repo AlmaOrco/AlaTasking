@@ -4,31 +4,42 @@
     (delete)="toDelete($event)"
     >
 </app-task-details>
-<h3>Tareas pendientes</h3>
-<mat-selection-list #tasks>
+<h2>Tareas pendientes</h2>
+<!-- <mat-selection-list #tasks>
     @for (task of toDoList; track task) {
-      <mat-list-option (click)="onChange(task)">{{task.title}}</mat-list-option>
+      <mat-list-option 
+        [selected]="task.completed" 
+        [togglePosition]="'before'"
+        (click)="onChange(task)">
+          {{task.title}}
+      </mat-list-option>
     }
-  </mat-selection-list>
-<!-- <ul class="tasks">
+</mat-selection-list> -->
+<ul class="tasks">
     @for(task of toDoList; track task.id) {
         <app-task-list-item 
             [task]="task"
             (click)="onChange(task)">
         </app-task-list-item>   
     }
-</ul> -->
-<h3>Tareas Completadas</h3>
-<mat-selection-list #tasks>
+</ul>
+<h2>Tareas Completadas</h2>
+<!-- <mat-selection-list #tasks>
     @for (task of doneList; track task) {
-      <mat-list-option [selected]="task.completed" [color]="'primary'" (click)="onChange(task)">{{task.title}}</mat-list-option>
+      <mat-list-option 
+        [selected]="task.completed" 
+        [togglePosition]="'before'"
+        [color]="'primary'" 
+        (click)="onChange(task)">
+          {{task.title}}
+      </mat-list-option>
     }
-  </mat-selection-list>
-<!-- <ul class="tasks">
+</mat-selection-list> -->
+<ul class="tasks">
     @for(task of doneList; track task.id) {
         <app-task-list-item 
             [task]="task"
             (click)="onChange(task)">
         </app-task-list-item>
     }
-</ul> -->
+</ul>

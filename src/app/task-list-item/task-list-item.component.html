@@ -1,5 +1,5 @@
 <li>
-    <input class="form-check-input" [checked]="task.completed" type="checkbox" value="" id="flexCheck{{task.id}}" (change)="onChange(task)">
+    <input class="form-check-input" [checked]="task.completed" type="checkbox" value="" id="flexCheck{{task.id}}" (click)="task.completed = !task.completed">
     <label class="form-check-label"  [class.text-decoration-line-through]="task.completed" [class.text-muted]="task.completed">
             {{task.id}}. {{task.title}}
     </label>

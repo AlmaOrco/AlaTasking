@@ -10,7 +10,4 @@ import { Task } from '../task';
 })
 export class TaskListItemComponent {
   @Input() task:Task;
-
-  onChange(task: Task): void {
-  }
 }

@@ -20,20 +20,18 @@ export class TaskListComponent implements OnInit{
 
   selectedTask:Task;
   
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  
   ngOnInit(): void {
     this.orderList(this.taskList);
   }
 
   //events
   onChange(task: Task): void {
-    task.completed = !task.completed;
     this.selectedTask = task;
     this.orderList(this.taskList);
   }
 
   toComplete(task:Task): void {
+    task.completed = !task.completed;
     this.onChange(task);
   }
 

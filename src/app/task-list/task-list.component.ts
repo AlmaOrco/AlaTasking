@@ -5,11 +5,13 @@ import { Task } from '../task';
 import { TaskDetailsComponent } from '../task-details/task-details.component';
 import { TaskListItemComponent } from '../task-list-item/task-list-item.component';
 import { MatListModule } from '@angular/material/list';
+import { MatIcon } from '@angular/material/icon';
+import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [NgFor, TaskDetailsComponent, TaskListItemComponent, MatListModule],
+  imports: [NgFor, TaskDetailsComponent, TaskListItemComponent, MatListModule, MatIcon, TaskFormComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })
@@ -39,7 +41,18 @@ export class TaskListComponent implements OnInit{
     this.taskList.splice(this.taskList.findIndex((task) => toDelete.id == task.id),1);
     this.orderList(this.taskList);
     toDelete.id = 0;
-    console.log(this.taskList);
+  }
+
+  createTask(): void{
+    this.selectedTask = {
+      id: -1,
+      title: ""
+    }
+  }
+  createNewTask(task:Task): void {
+    task.id = this.taskList[this.taskList.length-1].id + 1;
+    this.taskList.push(task);
+    this.orderList(this.taskList)
   }
 
   // aux functions

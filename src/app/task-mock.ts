@@ -18,5 +18,7 @@ export const TASKS: Task[] = [
   { id: 13, title: 'Hacer que el botón "borrar" devuelva un mensaje y cambie a un nuevo botón "Restaurar"'},
   { id: 14, title: 'Probar con mat-checkbox (sin mat-list)' },
   { id: 15, title: 'Probar a cambiar estilos con mat-list o mat-checkbox', remark: "Borrar código innecesario: task-list-item, comentarios, etc... En función de lo que decida."},
-  { id: 16, title: 'Meter subtasks (¿array de tareas o nueva clase?)'}
+  { id: 16, title: 'Meter subtasks (¿array de tareas o nueva clase?)'},
+  { id: 17, title: 'Dar formato al botón "Añadir tarea" (incluído tooltip)'},
+  { id: 18, title: 'Crear botón edit'}
 ];

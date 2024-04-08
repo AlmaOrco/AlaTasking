@@ -1,9 +1,28 @@
-<app-task-details 
-    [task]="selectedTask" 
-    (complete)="toComplete($event)"
-    (delete)="toDelete($event)"
+<h1>AlaTasking</h1>
+<div class="example-button-container">
+  <button mat-fab color="primary" 
+    (click)="createTask()"
+    aria-label="Example icon button with a bookmark icon">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+@if(selectedTask && selectedTask.id < 0) {
+  <app-task-form 
+    [task]="selectedTask"
+    (closeForm)="selectedTask.id=0"
+    (saveTask)="createNewTask($event)"
     >
-</app-task-details>
+  </app-task-form>
+}
+
+@if(selectedTask && selectedTask.id > 0) {
+  <app-task-details 
+      [task]="selectedTask" 
+      (complete)="toComplete($event)"
+      (delete)="toDelete($event)"
+      >
+  </app-task-details>
+}
 <h2>Tareas pendientes</h2>
 <!-- <mat-selection-list #tasks>
     @for (task of toDoList; track task) {

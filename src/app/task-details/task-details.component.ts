@@ -1,9 +1,9 @@
 import { NgIf, UpperCasePipe } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../task';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatIconButton} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-task-details',

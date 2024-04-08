@@ -1,0 +1,13 @@
+<h2>Nueva tarea</h2>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input [(ngModel)]="task.title" matInput placeholder="Title" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Remark</mat-label>
+      <textarea  matInput placeholder="Remark" [(ngModel)]="task.remark" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="saveTask.emit(task)">Guardar</button>
+    <button mat-flat-button color="warn" (click)="closeForm.emit(task)">Descartar</button>
+</form>

@@ -10,9 +10,9 @@ export const TASKS: Task[] = [
   { id: 7, title: 'Dar funcionalidad a los botones de detalles', completed: true },
   { id: 8, title: 'Intentar meter la selection list de material', completed: true, 
       remark: "No me gusta demasiado el resultado. Habría que probar con mat-checkbox, y jugar con los estilos" },
-  { id: 9, title: 'Distinguir la funcionalidad de click y change', completed:true, 
+  { id: 9, title: 'Distinguir la funcionalidad de click y change', completed: true, 
       remark: "Lo he conseguido con el componente propio, pero no con el de mat-list-option" },
-  { id: 10, title: 'Crear formulario para crear/modificar tareas' },
+  { id: 10, title: 'Crear formulario para crear/modificar tareas', completed: true },
   { id: 11, title: 'Buscar la manera de guardar la info' },
   { id: 12, title: 'Hacer el texto del botón "completed" cambie a "Uncompleted"' },
   { id: 13, title: 'Hacer que el botón "borrar" devuelva un mensaje y cambie a un nuevo botón "Restaurar"'},
@@ -20,5 +20,6 @@ export const TASKS: Task[] = [
   { id: 15, title: 'Probar a cambiar estilos con mat-list o mat-checkbox', remark: "Borrar código innecesario: task-list-item, comentarios, etc... En función de lo que decida."},
   { id: 16, title: 'Meter subtasks (¿array de tareas o nueva clase?)'},
   { id: 17, title: 'Dar formato al botón "Añadir tarea" (incluído tooltip)'},
-  { id: 18, title: 'Crear botón edit'}
+  { id: 18, title: 'Crear botón edit'},
+  { id: 19, title: 'Crear sistema de mensajes'}
 ];

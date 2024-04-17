@@ -47,15 +47,18 @@ export class TaskListComponent implements OnInit {
   }
 
   createTask(): void{
+    console.log("Creating Task");
     this.selectedTask = {
       id: -1,
       title: ""
     }
   }
+
   createNewTask(task:Task): void {
     task.id = this.taskList[this.taskList.length-1].id + 1;
-    this.taskList.push(task);
-    this.orderList(this.taskList)
+    this.taskService.saveTaskToFile(task);
+    //this.taskList.push(task);
+    this.orderList(this.taskList);
   }
 
   // aux functions
@@ -69,7 +72,7 @@ export class TaskListComponent implements OnInit {
 
   // Service methods
   getTasks(): void {
-    //this.taskService.getTasks().subscribe(tasks => this.taskList = tasks);
-    this.taskService.getTasksFromFile().subscribe(tasks => this.taskList = tasks);
+    this.taskService.getTasks().subscribe(tasks => this.taskList = tasks);
+    //this.taskService.getTasksFromFile().subscribe(tasks => this.taskList = tasks);
   }
 }

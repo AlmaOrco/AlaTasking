@@ -10,28 +10,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TaskService {
   taskList:Task[];
-  private tasksUrl = 'api/tasks';
+  private tasksUrl = 'http://localhost:3000/tasks';
 
   constructor(
     private http: HttpClient,
     /* private messageService: MessageService */) { }
 
   private log(message: string):void {
-    console.log(`TaskService: ${message}`);
+    console.log(`[TaskService] ${message}`);
   }
 
-  getTasks(): Observable<Task[]> {
-    this.log("get Tasks()");
-    /* return */ this.http.get<Task[]>(this.tasksUrl);
-    return of(TASKS);
+  async getTasks(): Promise<Task[]> {
+    this.log(`get Tasks()`);
+    const data = await fetch(this.tasksUrl);
+    this.log(`get Tasks() - data: ${data}`);
+    return (await data.json()) ?? [];
   }
-
-/*   getTasksFromFile(): Observable<Task[]> {
-    const content = readFileSync('src/assets/tasks.json', {encoding:'utf-8'})
-    this.taskList = JSON.parse(content).tasks;
-    console.log(this.taskList);
-    return of(this.taskList);
-  } */
 
   saveTaskToFile(task:Task): void {
     //this.getTasksFromFile().subscribe(tasks => this.taskList = tasks);

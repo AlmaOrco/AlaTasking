@@ -64,7 +64,6 @@ export class TaskListComponent implements OnInit {
   orderList(taskList:Task[]):void {
     this.toDoList = [];
     this.doneList = [];
-    console.log(`[TaskListComponent.ts] orderList(taskList) - taskList: ${taskList}`);
     taskList.forEach(task => {
       task.completed ? this.doneList.push(task) : this.toDoList.push(task);
     });
@@ -73,9 +72,14 @@ export class TaskListComponent implements OnInit {
   // Service methods
   getTasks(): void {
     console.log(`[TaskListComponent.ts] getTasks()`);
-    this.taskService.getTasks().then((tasks: Task[]) => {
-      console.log(`[TaskListComponent.ts] getTasks() - tasks: ${tasks}`);
+    
+    this.taskService.getTasksFromHttp().then((tasks: Task[]) => {
+      console.log(`[TaskListComponent.ts] getTasks() - inside then 1 - tasks: ${tasks}`);
       this.orderList(tasks);
     });
+/*     this.taskService.getTasks().then((tasks: Task[]) => {
+      console.log(`[TaskListComponent.ts] getTasks() - inside then 2 - tasks: ${tasks}`);
+      this.orderList(tasks);
+    }); */
   }
 }

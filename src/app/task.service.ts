@@ -27,6 +27,17 @@ export class TaskService {
     return (await data.json()) ?? [];
   }
 
+  async getTasksFromHttp(): Promise<Task[]>{
+     this.http.get(this.tasksUrl, /* {
+      params: {filter: 'all'},
+    } */).subscribe(data => {
+      this.taskList = [...data as Task[]];
+      this.log(`get Tasks() - inside suscribe - this.taskList: ${JSON.stringify(this.taskList)}`);
+    });
+    
+    return (await this.taskList) ?? [];
+  }
+
   saveTaskToFile(task:Task): void {
     //this.getTasksFromFile().subscribe(tasks => this.taskList = tasks);
     this.taskList = TASKS;

@@ -46,7 +46,7 @@ export class TaskListComponent implements OnInit {
   }
 
   createTask(): void{
-    console.log("Creating Task");
+    console.log(`[TaskListComponent.ts] createTask()`);
     this.selectedTask = {
       id: -1,
       title: ""
@@ -54,14 +54,16 @@ export class TaskListComponent implements OnInit {
   }
 
   createNewTask(task:Task): void {
-    task.id = this.taskList[this.taskList.length-1].id + 1;
+    console.log(`[TaskListComponent.ts] createNewTask(task) - task: ${JSON.stringify(task)}`);
+    //task.id = this.taskList[this.taskList.length-1].id + 1;
     this.taskService.saveTaskToFile(task);
-    //this.taskList.push(task);
+    this.getTasks();
     this.orderList(this.taskList);
   }
 
   // aux functions
   orderList(taskList:Task[]):void {
+    console.log(`[TaskListComponent.ts] orderList(taskList)`);
     this.toDoList = [];
     this.doneList = [];
     taskList.forEach(task => {
@@ -72,14 +74,8 @@ export class TaskListComponent implements OnInit {
   // Service methods
   getTasks(): void {
     console.log(`[TaskListComponent.ts] getTasks()`);
-    
-    this.taskService.getTasksFromHttp().then((tasks: Task[]) => {
-      console.log(`[TaskListComponent.ts] getTasks() - inside then 1 - tasks: ${tasks}`);
+    this.taskService.getTasks().then((tasks: Task[]) => {
       this.orderList(tasks);
     });
-/*     this.taskService.getTasks().then((tasks: Task[]) => {
-      console.log(`[TaskListComponent.ts] getTasks() - inside then 2 - tasks: ${tasks}`);
-      this.orderList(tasks);
-    }); */
   }
 }

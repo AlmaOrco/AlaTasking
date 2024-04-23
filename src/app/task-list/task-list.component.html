@@ -1,4 +1,3 @@
-<h1>AlaTasking</h1>
 <div class="example-button-container">
   <button mat-fab color="primary" 
     (click)="createTask()"
@@ -29,18 +28,20 @@
       <mat-list-option 
         [selected]="task.completed" 
         [togglePosition]="'before'"
-        (click)="onChange(task)">
+        (click)="onSelect(task)"
+        (change)="onChange(task)">
           {{task.title}}
       </mat-list-option>
     }
 </mat-selection-list> -->
 <ul class="tasks">
-    @for(task of toDoList; track task.id) {
-        <app-task-list-item 
-            [task]="task"
-            (click)="onChange(task)">
-        </app-task-list-item>   
-    }
+  @for(task of toDoList; track task.id) {
+    <app-task-list-item 
+      [task]="task"
+      (click)="onSelect(task)"
+      (change)="onChange(task)">
+    </app-task-list-item>   
+  }
 </ul>
 <h2>Tareas Completadas</h2>
 <!-- <mat-selection-list #tasks>
@@ -55,10 +56,11 @@
     }
 </mat-selection-list> -->
 <ul class="tasks">
-    @for(task of doneList; track task.id) {
-        <app-task-list-item 
-            [task]="task"
-            (click)="onChange(task)">
-        </app-task-list-item>
-    }
+  @for(task of doneList; track task.id) {
+    <app-task-list-item 
+      [task]="task"
+      (click)="onSelect(task)"
+      (change)="onChange(task)">
+    </app-task-list-item>
+  }
 </ul>

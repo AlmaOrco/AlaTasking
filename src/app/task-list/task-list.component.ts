@@ -26,13 +26,17 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTasks();
-    this.orderList(this.taskList);
   }
 
   //events
   onChange(task: Task): void {
-    this.selectedTask = task;
+    console.log(`[TaskListComponent.ts] onChange(task) - task: ${JSON.stringify(task)}`);
     this.orderList(this.taskList);
+  }
+
+  onSelect(task: Task): void {
+    console.log(`[TaskListComponent.ts] onSelect(task) - task: ${JSON.stringify(task)}`);
+    this.selectedTask = task;
   }
 
   toComplete(task:Task): void {
@@ -47,19 +51,24 @@ export class TaskListComponent implements OnInit {
   }
 
   createTask(): void{
+    console.log(`[TaskListComponent.ts] createTask()`);
     this.selectedTask = {
       id: -1,
       title: ""
     }
   }
+
   createNewTask(task:Task): void {
-    task.id = this.taskList[this.taskList.length-1].id + 1;
-    this.taskList.push(task);
-    this.orderList(this.taskList)
+    console.log(`[TaskListComponent.ts] createNewTask(task) - task: ${JSON.stringify(task)}`);
+    //task.id = this.taskList[this.taskList.length-1].id + 1;
+    this.taskService.saveTaskToFile(task);
+    this.getTasks();
+    this.orderList(this.taskList);
   }
 
   // aux functions
   orderList(taskList:Task[]):void {
+    console.log(`[TaskListComponent.ts] orderList(taskList)`);
     this.toDoList = [];
     this.doneList = [];
     taskList.forEach(task => {
@@ -69,6 +78,10 @@ export class TaskListComponent implements OnInit {
 
   // Service methods
   getTasks(): void {
-    this.taskService.getTasks().subscribe(tasks => this.taskList = tasks);
+    console.log(`[TaskListComponent.ts] getTasks()`);
+    this.taskService.getTasks().then((tasks: Task[]) => {
+      this.taskList = tasks;
+      this.orderList(tasks);
+    });
   }
 }

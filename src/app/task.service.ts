@@ -23,7 +23,7 @@ export class TaskService {
   async getTasks(): Promise<Task[]>{
     this.http.get(this.tasksUrl).subscribe(data => {
       this.taskList = [...data as Task[]];
-      this.log(`getTasksFromHttp() - inside suscribe - this.taskList: ${JSON.stringify(this.taskList)}`);
+      this.log(`getTasks() - inside suscribe - this.taskList: ${JSON.stringify(this.taskList)}`);
     });
     
     return (await this.taskList) ?? [];
@@ -32,19 +32,12 @@ export class TaskService {
   async saveTaskToFile(task:Task): Promise<void> {
     this.log(`saveTaskToFile(task) - task: ${JSON.stringify(task)}`);
     task.id = this.getNewTaskId();
-    this.log(`saveTaskToFile(task) - task.id: ${task.id}`);
-    //this.getTasksFromFile().subscribe(tasks => this.taskList = tasks);
-/*     this.taskList = TASKS;
-    this.taskList.push(task);
-    const content = {"tasks": this.taskList}; */
     this.http.post(this.tasksUrl, task, {
       reportProgress: true,
       observe: 'events',
     }).subscribe(data => {
       this.log(`saveTaskToFile() - inside suscribe - data: ${JSON.stringify(data)}`);
     });
-    //writeFileSync('src/assets/tasks.json',JSON.stringify(content) ,'utf8');
-    //console.log(content);
   }
 
   getNewTaskId(): number {

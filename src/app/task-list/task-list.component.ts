@@ -30,8 +30,13 @@ export class TaskListComponent implements OnInit {
 
   //events
   onChange(task: Task): void {
-    this.selectedTask = task;
+    console.log(`[TaskListComponent.ts] onChange(task) - task: ${JSON.stringify(task)}`);
     this.orderList(this.taskList);
+  }
+
+  onSelect(task: Task): void {
+    console.log(`[TaskListComponent.ts] onSelect(task) - task: ${JSON.stringify(task)}`);
+    this.selectedTask = task;
   }
 
   toComplete(task:Task): void {
@@ -75,6 +80,7 @@ export class TaskListComponent implements OnInit {
   getTasks(): void {
     console.log(`[TaskListComponent.ts] getTasks()`);
     this.taskService.getTasks().then((tasks: Task[]) => {
+      this.taskList = tasks;
       this.orderList(tasks);
     });
   }

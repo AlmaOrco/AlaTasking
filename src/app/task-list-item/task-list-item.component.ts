@@ -10,4 +10,9 @@ import { Task } from '../task';
 })
 export class TaskListItemComponent {
   @Input() task:Task;
+  onChange(task: Task): void {
+    console.log(`[TaskListComponent.ts] onChange(task) - task: ${JSON.stringify(task)}`);
+    task.completed = !task.completed;
+  }
+
 }

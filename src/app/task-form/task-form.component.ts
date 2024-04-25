@@ -13,8 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './task-form.component.scss'
 })
 export class TaskFormComponent {
-  @Input() task:Task;
-  @Output() closeForm = new EventEmitter();
-  @Output() saveTask = new EventEmitter();
+  @Input() selectedTask:Task;
 
 }

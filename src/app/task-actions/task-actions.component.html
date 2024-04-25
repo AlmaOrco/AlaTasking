@@ -1,0 +1,17 @@
+
+<mat-card-actions>
+    <button mat-fab color="primary" 
+      (click)="createTask()"
+        aria-label="Example icon button with a bookmark icon">
+        <mat-icon>add</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="complete.emit(selectedTask)">Completed</button>
+    <button mat-mini-fab color="accent" (click)="edit.emit(selectedTask)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-flat-button color="primary" (click)="saveTask.emit(selectedTask)">Guardar</button>
+    <button mat-flat-button color="warn" (click)="closeForm.emit(selectedTask)">Descartar</button>
+    <button mat-mini-fab color="accent" (click)="delete.emit(selectedTask)">
+      <mat-icon>delete</mat-icon>
+    </button>
+</mat-card-actions>

@@ -1,19 +1,22 @@
-import { NgIf, UpperCasePipe } from '@angular/common';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { Task } from '../task';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { TaskCardComponent } from '../task-card/task-card.component';
+import { TaskFormComponent } from '../task-form/task-form.component';
+import { TaskActionsComponent } from '../task-actions/task-actions.component';
 
 @Component({
   selector: 'app-task-details',
   standalone: true,
-  imports: [UpperCasePipe, NgIf, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [ NgIf, TaskCardComponent, TaskFormComponent, TaskActionsComponent],
   templateUrl: './task-details.component.html',
   styleUrl: './task-details.component.scss'
 })
 export class TaskDetailsComponent {
-  @Input({required:true}) task: Task;
-  @Output() complete = new EventEmitter();
-  @Output() delete = new EventEmitter();
+  @Input({required:true}) selectedTask: Task;
+  @Input() editing: boolean;
+
+  deleteTask(): void{
+
+  }
 }

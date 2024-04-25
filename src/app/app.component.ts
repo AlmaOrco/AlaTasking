@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { TaskListComponent } from './task-list/task-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskService } from './task.service';
+import { Task } from './task';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,6 @@ import { TaskService } from './task.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  selectedTask: Task;
   title = 'AlaTasking';
 }

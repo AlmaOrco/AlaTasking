@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Task } from '../task';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';

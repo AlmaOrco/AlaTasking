@@ -2,7 +2,7 @@
 <mat-card-actions>
 @if(!selectedTask) {
   <button mat-mini-fab color="primary" 
-    (click)="createTask.emit('create')"
+    (click)="createTask.emit()"
     aria-label="New task">
       <mat-icon>add</mat-icon>
   </button>

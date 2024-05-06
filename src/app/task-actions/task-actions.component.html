@@ -1,17 +1,35 @@
-
+<h1>Actions</h1>
 <mat-card-actions>
-    <button mat-fab color="primary" 
-      (click)="createTask()"
-        aria-label="Example icon button with a bookmark icon">
-        <mat-icon>add</mat-icon>
-    </button>
-    <button mat-raised-button color="primary" (click)="complete.emit(selectedTask)">Completed</button>
-    <button mat-mini-fab color="accent" (click)="edit.emit(selectedTask)">
-      <mat-icon>edit</mat-icon>
-    </button>
-    <button mat-flat-button color="primary" (click)="saveTask.emit(selectedTask)">Guardar</button>
-    <button mat-flat-button color="warn" (click)="closeForm.emit(selectedTask)">Descartar</button>
-    <button mat-mini-fab color="accent" (click)="delete.emit(selectedTask)">
-      <mat-icon>delete</mat-icon>
-    </button>
+@if(!selectedTask) {
+  <button mat-mini-fab color="primary" 
+    (click)="createTask.emit('create')"
+    aria-label="New task">
+      <mat-icon>add</mat-icon>
+  </button>
+}
+@if(selectedTask) {
+  <button mat-mini-fab color="primary"
+    aria-label="Complete task">
+    <mat-icon>done</mat-icon>
+  </button>
+  <button mat-mini-fab color="accent"
+    aria-label="Uncomplete task">
+    <mat-icon>check_circle_outline</mat-icon>
+  </button>
+  <button mat-mini-fab color="accent"
+    aria-label="Edit task">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <button mat-mini-fab color="primary"
+    aria-label="Save task">
+    <mat-icon>save</mat-icon>
+  </button>
+  <button mat-mini-fab color="warn"
+    aria-label="Cancel">
+    <mat-icon>backspace</mat-icon>
+  </button>
+  <button mat-mini-fab color="accent">
+    <mat-icon>delete</mat-icon>
+  </button>
+}
 </mat-card-actions>

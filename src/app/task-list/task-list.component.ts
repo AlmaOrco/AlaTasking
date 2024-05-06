@@ -50,14 +50,6 @@ export class TaskListComponent implements OnInit {
     toDelete.id = 0;
   }
 
-  createTask(): void{
-    console.log(`[TaskListComponent.ts] createTask()`);
-    this.selectedTask = {
-      id: -1,
-      title: ""
-    }
-  }
-
   createNewTask(task:Task): void {
     console.log(`[TaskListComponent.ts] createNewTask(task) - task: ${JSON.stringify(task)}`);
     //task.id = this.taskList[this.taskList.length-1].id + 1;

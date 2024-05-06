@@ -4,4 +4,4 @@
 @if(selectedTask && editing) {
   <app-task-form [selectedTask]="selectedTask"></app-task-form>
 }
-<app-task-actions (delete)="deleteTask()" ></app-task-actions>
+<app-task-actions [selectedTask]="selectedTask" (click)="deleteTask()" (createTask)="createTask()"></app-task-actions>

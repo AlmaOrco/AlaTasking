@@ -15,10 +15,19 @@ import { Task } from '../task';
 export class TaskActionsComponent {
   @Input() selectedTask: Task;
   @Input() editing: boolean;
-  @Output() complete = new EventEmitter();
+/*   @Output() complete = new EventEmitter();
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() closeForm = new EventEmitter();
-  @Output() saveTask = new EventEmitter();
+  @Output() saveTask = new EventEmitter(); */
+  @Output() createTask = new EventEmitter();
 
+
+/*   createTask(): void{
+    console.log(`[TaskListComponent.ts] createTask()`);
+    this.selectedTask = {
+      id: -1,
+      title: ""
+    }
+  } */
 }

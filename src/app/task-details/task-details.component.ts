@@ -17,6 +17,15 @@ export class TaskDetailsComponent {
   @Input() editing: boolean;
 
   deleteTask(): void{
+    console.log("[TaskDetailsComponent] deleteTask");
+  }
 
+  createTask(): void{
+    console.log(`[TaskListComponent.ts] createTask()`);
+    this.selectedTask = {
+      id: -1,
+      title: "",
+      editing: true
+    }
   }
 }

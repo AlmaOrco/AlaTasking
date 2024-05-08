@@ -1,34 +1,49 @@
-<h1>Actions</h1>
 <mat-card-actions>
 @if(!selectedTask) {
   <button mat-mini-fab color="primary" 
-    (click)="createTask.emit()"
-    aria-label="New task">
+    (click)="createTask.emit('create')"
+    aria-label="New task"
+    tooltip="New task">
       <mat-icon>add</mat-icon>
   </button>
 }
-@if(selectedTask) {
-  <button mat-mini-fab color="primary"
-    aria-label="Complete task">
-    <mat-icon>done</mat-icon>
-  </button>
+@else if(selectedTask) {
+  @if(selectedTask.completed) {
+    <button mat-mini-fab color="accent"
+      aria-label="Uncomplete task"
+      tooltip="Uncomplete task">
+      <mat-icon>check_circle_outline</mat-icon>
+    </button>
+  }
+  @else if(!selectedTask.completed) {
+    <button mat-mini-fab color="primary"
+      aria-label="Complete task"
+      tooltip="Complete task">
+      <mat-icon>done</mat-icon>
+    </button>
+  }
+  @if (!selectedTask.editing) {
+    <button mat-mini-fab color="accent"
+      aria-label="Edit task"
+      tooltip="Edit task">
+      <mat-icon>edit</mat-icon>
+    </button>
+  }
+  @if (selectedTask.editing) {
+    <button mat-mini-fab color="primary"
+      aria-label="Save task"
+      tooltip="Save task">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn"
+      aria-label="Cancel"
+      tooltip="Cancel">
+      <mat-icon>backspace</mat-icon>
+    </button>
+  }
   <button mat-mini-fab color="accent"
-    aria-label="Uncomplete task">
-    <mat-icon>check_circle_outline</mat-icon>
-  </button>
-  <button mat-mini-fab color="accent"
-    aria-label="Edit task">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button mat-mini-fab color="primary"
-    aria-label="Save task">
-    <mat-icon>save</mat-icon>
-  </button>
-  <button mat-mini-fab color="warn"
-    aria-label="Cancel">
-    <mat-icon>backspace</mat-icon>
-  </button>
-  <button mat-mini-fab color="accent">
+  aria-label="Delete"
+  tooltip="Delete">
     <mat-icon>delete</mat-icon>
   </button>
 }

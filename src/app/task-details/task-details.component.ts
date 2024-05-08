@@ -20,7 +20,7 @@ export class TaskDetailsComponent {
     console.log("[TaskDetailsComponent] deleteTask");
   }
 
-  createTask(): void{
+  createTask(event:any): void{
     console.log(`[TaskListComponent.ts] createTask()`);
     this.selectedTask = {
       id: -1,

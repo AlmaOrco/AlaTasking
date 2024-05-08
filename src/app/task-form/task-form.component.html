@@ -1,11 +1,12 @@
 <h2>Nueva tarea</h2>
 <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Title</mat-label>
-      <input [(ngModel)]="selectedTask.title" matInput placeholder="Title" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Remark</mat-label>
-      <textarea  matInput placeholder="Remark" [(ngModel)]="selectedTask.remark" [ngModelOptions]="{standalone: true}"></textarea>
-    </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Title</mat-label>
+    <input [(ngModel)]="selectedTask.title" matInput placeholder="Title" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Remark</mat-label>
+    <textarea  matInput placeholder="Remark" [(ngModel)]="selectedTask.remark" [ngModelOptions]="{standalone: true}"></textarea>
+  </mat-form-field>
+  <app-task-actions [selectedTask]="selectedTask"></app-task-actions>
 </form>

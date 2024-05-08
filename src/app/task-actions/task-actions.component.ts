@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,7 +13,6 @@ import { Task } from '../task';
 })
 export class TaskActionsComponent {
   @Input() selectedTask: Task;
-  @Input() editing: boolean;
 /*   @Output() complete = new EventEmitter();
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();

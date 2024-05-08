@@ -1,7 +1,10 @@
-@if(selectedTask && !editing) {
+@if(selectedTask && !selectedTask.editing) {
+  <p>{{selectedTask.editing}}</p>
   <app-task-card [selectedTask]="selectedTask"></app-task-card>
 }
-@if(selectedTask && editing) {
+@if(selectedTask && selectedTask.editing) {
   <app-task-form [selectedTask]="selectedTask"></app-task-form>
 }
-<app-task-actions [selectedTask]="selectedTask" (click)="deleteTask()" (createTask)="createTask()"></app-task-actions>
+@if(!selectedTask) {
+  <app-task-actions [selectedTask]="selectedTask" (createTask)="createTask($event)"></app-task-actions>
+}

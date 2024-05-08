@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Task } from '../task';
 import { TaskDetailsComponent } from '../task-details/task-details.component';
 import { TaskListItemComponent } from '../task-list-item/task-list-item.component';
@@ -19,6 +19,7 @@ export class TaskListComponent implements OnInit {
   taskList:Task[];
   toDoList:Task[];
   doneList:Task[];
+  @Output() selectTask = new EventEmitter();
 
   selectedTask:Task;
   
@@ -36,6 +37,7 @@ export class TaskListComponent implements OnInit {
 
   onSelect(task: Task): void {
     console.log(`[TaskListComponent.ts] onSelect(task) - task: ${JSON.stringify(task)}`);
+    this.selectTask.emit(task);
     this.selectedTask = task;
   }
 

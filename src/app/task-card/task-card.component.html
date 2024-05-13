@@ -8,5 +8,8 @@
       <p>{{selectedTask.remark}}</p>
     </mat-card-content>
   }
-  <app-task-actions [selectedTask]="selectedTask"></app-task-actions>
+  <app-task-actions [selectedTask]="selectedTask"
+    (completeTask)="log('onComplete'); completeTask($event)"
+    >
+  </app-task-actions>
 </mat-card>

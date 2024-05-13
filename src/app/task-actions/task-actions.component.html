@@ -10,6 +10,7 @@
 @else if(selectedTask) {
   @if(selectedTask.completed) {
     <button mat-mini-fab color="accent"
+      (click)="log('uncompleteTask'); completeTask.emit(selectedTask)"
       aria-label="Uncomplete task"
       tooltip="Uncomplete task">
       <mat-icon>check_circle_outline</mat-icon>
@@ -17,6 +18,7 @@
   }
   @else if(!selectedTask.completed) {
     <button mat-mini-fab color="primary"
+      (click)="log('completeTask'); completeTask.emit(selectedTask)"
       aria-label="Complete task"
       tooltip="Complete task">
       <mat-icon>done</mat-icon>
@@ -35,16 +37,16 @@
       tooltip="Save task">
       <mat-icon>save</mat-icon>
     </button>
-    <button mat-mini-fab color="warn"
-      aria-label="Cancel"
-      tooltip="Cancel">
-      <mat-icon>backspace</mat-icon>
-    </button>
   }
-  <button mat-mini-fab color="accent"
+  <button mat-mini-fab color="warn"
   aria-label="Delete"
   tooltip="Delete">
     <mat-icon>delete</mat-icon>
+  </button>
+  <button mat-mini-fab color="warn"
+    aria-label="Cancel"
+    tooltip="Cancel">
+    <mat-icon>backspace</mat-icon>
   </button>
 }
 </mat-card-actions>

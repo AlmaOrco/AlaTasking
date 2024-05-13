@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../task';
 import { MatCardModule } from '@angular/material/card';
 import { TaskActionsComponent } from '../task-actions/task-actions.component';
@@ -13,5 +13,21 @@ import { TaskActionsComponent } from '../task-actions/task-actions.component';
 export class TaskCardComponent {
   @Input({required:true}) selectedTask: Task;
   @Input() editing: boolean;
+  @Output() updateList = new EventEmitter();
 
+
+  log(text:string) {
+    console.log(`TaskCardComponent - log: ${text}`)
+  }
+
+  deleteTask(): void{
+    console.log("[TaskCardComponent] deleteTask");
+  }
+  
+  completeTask(selectedTask: Task): void{
+    console.log(`[TaskCardComponent] completeTask(selectedTask) - selectedTask: ${JSON.stringify(selectedTask)}`);
+    selectedTask.completed = !selectedTask.completed;
+    //TODO Guardar desde aquí. 
+    this.updateList.emit();
+  }
 }

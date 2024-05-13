@@ -13,12 +13,16 @@ import { Task } from '../task';
 })
 export class TaskActionsComponent {
   @Input() selectedTask: Task;
-/*   @Output() complete = new EventEmitter();
-  @Output() delete = new EventEmitter();
-  @Output() edit = new EventEmitter();
+  @Output() completeTask = new EventEmitter();
+  @Output() deleteTask = new EventEmitter();
+  @Output() editTask = new EventEmitter();
   @Output() closeForm = new EventEmitter();
-  @Output() saveTask = new EventEmitter(); */
+  @Output() saveTask = new EventEmitter();
   @Output() createTask = new EventEmitter();
+
+  log(text:string) {
+    console.log(`TaskActionsComponent - log: ${text}`)
+  }
 
 
 /*   createTask(): void{
